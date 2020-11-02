@@ -8,68 +8,68 @@ VALUES ("Executive"), ("Engineering"), ("Sales"), ("Legal"), ("Human Resources")
 -- 2: Insert Rows into ROLE table
 INSERT INTO role (title, salary, department_id)
     -- 2.1: Executive Department
-VALUES ("Chief Executive Officer", 230000, 001);
-VALUES ("Executive Assistant", 70000, 001);
+VALUES ("Chief Executive Officer", 230000, 001),
+ ("Executive Assistant", 70000, 001),
     -- 2.2: Engineering Department
-VALUES ("Engineering Director", 190000, 002);
-VALUES ("Senior Engineer", 120000, 002);
-VALUES ("Engineer", 60000, 002);
+ ("Engineering Director", 190000, 002),
+ ("Senior Engineer", 120000, 002),
+ ("Engineer", 60000, 002),
     -- 2.3: Sales Department
-VALUES ("Sales Director", 100000, 003);
-VALUES ("Senior Sales Representative", 80000, 003);
-VALUES ("Sales Representative", 40000, 003);
+ ("Sales Director", 100000, 003),
+ ("Senior Sales Representative", 80000, 003),
+ ("Sales Representative", 40000, 003),
     -- 2.4: Legal Department
-VALUES ("Legal Director", 180000, 004);
-VALUES ("Legal Adviser", 120000, 004);
-VALUES ("Paralegal", 50000, 004);
+ ("Legal Director", 180000, 004),
+ ("Legal Adviser", 120000, 004),
+ ("Paralegal", 50000, 004),
     -- 2.5: HR Department
-VALUES ("Human Resources Director", 90000, 005);
-VALUES ("Human Resources Specialist", 60000, 005);
+ ("Human Resources Director", 90000, 005),
+ ("Human Resources Specialist", 60000, 005),
     -- 2.6: FINANCE Department
-VALUES ("Finance Director", 110000, 006);
-VALUES ("Senior Accountant", 70000, 006);
-VALUES ("Accountant", 55000, 006);
+ ("Finance Director", 110000, 006),
+ ("Senior Accountant", 70000, 006),
+ ("Accountant", 55000, 006);
 
 -- 3: Insert Rows into EMPLOYEE table
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
     -- Executive Department
-VALUES ("Hayden", "Perkins", 101, null);
-VALUES ("Lamar", "Oliver", 102, 101);
-VALUES ("Kayley", "John", 102, 101);
+ VALUES ("Hayden", "Perkins", 101, null),
+ ("Lamar", "Oliver", 102, 101),
+ ("Kayley", "John", 102, 101),
     -- Engineering Department
-VALUES ("Frances", "Li", 201, 101);
-VALUES ("Indigo", "Wainwright", 202, 201);
-VALUES ("Danyaal", "Dunkley", 202, 201);
-VALUES ("Killian", "Kenny", 202, 201);
-VALUES ("Elisha", "Copeland", 203, 202);
-VALUES ("Whitney", "Hyde", 203, 202);
-VALUES ("Mayur", "Blair", 203, 202);
-VALUES ("Denny", "Frank", 203, 202);
-VALUES ("Talhah", "Fisher", 203, 202);
-VALUES ("Cecil", "Shannon", 203, 202);
-VALUES ("Tarun", "Steele", 203, 202);
-VALUES ("Bessie", "Dalton", 203, 202);
-VALUES ("Pedro", "Pham", 203, 202);
-VALUES ("Caitlin", "Guest", 203, 202);
-VALUES ("Eboni", "Butler", 203, 202);
+ ("Frances", "Li", 201, 101),
+ ("Indigo", "Wainwright", 202, 201),
+ ("Danyaal", "Dunkley", 202, 201),
+ ("Killian", "Kenny", 202, 201),
+ ("Elisha", "Copeland", 203, 202),
+ ("Whitney", "Hyde", 203, 202),
+ ("Mayur", "Blair", 203, 202),
+ ("Denny", "Frank", 203, 202),
+ ("Talhah", "Fisher", 203, 202),
+ ("Cecil", "Shannon", 203, 202),
+ ("Tarun", "Steele", 203, 202),
+ ("Bessie", "Dalton", 203, 202),
+ ("Pedro", "Pham", 203, 202),
+ ("Caitlin", "Guest", 203, 202),
+ ("Eboni", "Butler", 203, 202),
     -- Sales Department
-VALUES ("Kory", "Nichols", 301, 101);
-VALUES ("Dominique", "Cousins", 302, 301);
-VALUES ("Rebekah", "Connor", 302, 301);
-VALUES ("Coen", "David", 303, 301);
-VALUES ("Deacon", "Watson", 303, 301);
-VALUES ("Taliyah", "Burns", 303, 301);
-VALUES ("Rebeca", "Hoover", 303, 301);
+ ("Kory", "Nichols", 301, 101),
+ ("Dominique", "Cousins", 302, 301),
+ ("Rebekah", "Connor", 302, 301),
+ ("Coen", "David", 303, 301),
+ ("Deacon", "Watson", 303, 301),
+ ("Taliyah", "Burns", 303, 301),
+ ("Rebeca", "Hoover", 303, 301),
     -- Legal Department
-VALUES ("Katrina", "Ahmed", 401, 101);
-VALUES ("Nico", "Tran", 402, 401);
-VALUES ("Ziggy", "Ritter", 403, 401);
-VALUES ("Iram", "Wong", 403, 401);
+ ("Katrina", "Ahmed", 401, 101),
+ ("Nico", "Tran", 402, 401),
+ ("Ziggy", "Ritter", 403, 401),
+ ("Iram", "Wong", 403, 401),
     -- HR Department
-VALUES ("Darin", "Sargent", 501, 101);
-VALUES ("Dustin", "Mohammed", 502, 501);
+ ("Darin", "Sargent", 501, 101), 
+ ("Dustin", "Mohammed", 502, 501),
     -- FINANCE Department
-VALUES ("Glen", "Pollard", 601, 101);
-VALUES ("Lindsay", "Reader", 602, 601);
-VALUES ("Maxime", "Mcdougall", 603, 601);
-VALUES ("Arvin", "Dawson", 603, 601);
+ ("Glen", "Pollard", 601, 101), 
+ ("Lindsay", "Reader", 602, 601), 
+ ("Maxime", "Mcdougall", 603, 601), 
+ ("Arvin", "Dawson", 603, 601);
