@@ -9,7 +9,17 @@
   "author": "Shawn Fok",
   "license": "ISC",
   "dependencies": {
+    "console.table": "^0.10.0",
     "inquirer": "^6.2.1",
     "mysql": "^2.16.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shawnfok/employee-tracker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shawnfok/employee-tracker/issues"
+  },
+  "homepage": "https://github.com/shawnfok/employee-tracker#readme"
 }

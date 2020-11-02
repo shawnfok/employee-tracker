@@ -25,7 +25,7 @@ VALUES ("Chief Executive Officer", 230000, 001),
     -- 2.5: HR Department
  ("Human Resources Director", 90000, 005),
  ("Human Resources Specialist", 60000, 005),
-    -- 2.6: FINANCE Department
+    -- 2.6: Finance Department
  ("Finance Director", 110000, 006),
  ("Senior Accountant", 70000, 006),
  ("Accountant", 55000, 006);
@@ -68,7 +68,7 @@ INSERT INTO employee (first_name, last_name, role_id, manager_id)
     -- HR Department
  ("Darin", "Sargent", 501, 101), 
  ("Dustin", "Mohammed", 502, 501),
-    -- FINANCE Department
+    -- Finance Department
  ("Glen", "Pollard", 601, 101), 
  ("Lindsay", "Reader", 602, 601), 
  ("Maxime", "Mcdougall", 603, 601), 
