@@ -23,7 +23,7 @@ function startWhat() {
   inquirer.prompt({
     name: "action",
     type: "list",
-    message: "Welcome to Employee Tracker Database! How can we help you?",
+    message: "Welcome to Employee Tracker Database! What would you like to do?",
     choices: [
       "ADD department/role/employee",
       "VIEW department/role/employee",
@@ -165,7 +165,7 @@ function addEmp() {
         first_name: res.addFirstName,
         last_name: res.addLastName,
         role_id: res.addRoleId,
-        role_id: res.addManagerId
+        manager_id: res.addManagerId
       },
       function (err, res) {
         if (err) throw err;
@@ -177,12 +177,27 @@ function addEmp() {
 
 // Functions for VIEWING
 function viewDepts() {
+    connection.query("SELECT * FROM department", function(err, res) {
+    if(err)throw err;
+    console.table("All departments:", res);
+    startWhat();
+    })
 }
 
 function viewRoles() {
+  connection.query("SELECT * FROM role", function(err, res) {
+    if(err)throw err;
+    console.table("All roles:", res);
+    startWhat();
+    })
 }
 
 function viewEmps() {
+  connection.query("SELECT * FROM employee", function(err, res) {
+    if(err)throw err;
+    console.table("All employees:", res);
+    startWhat();
+    })
 }
 
 // Ending the app
