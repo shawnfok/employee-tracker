@@ -29,10 +29,10 @@ function startWhat() {
       "VIEW department/role/employee",
       "EXIT"
     ]
-  }).then(function (answer) {
-    if (answer.action === "ADD department/role/employee") {
+  }).then(function (res) {
+    if (res.action === "ADD department/role/employee") {
       addWhat();
-    } else if (answer.action === "VIEW department/role/employee") {
+    } else if (res.action === "VIEW department/role/employee") {
       viewWhat();
     } else {
       exit();
@@ -47,12 +47,12 @@ function addWhat() {
     type: "list",
     message: "What would you like to ADD?",
     choices: ["Department", "Role", "Employee", "GO BACK"]
-  }).then(function (answer) {
-    if (answer.action === "Department") {
+  }).then(function (res) {
+    if (res.action === "Department") {
       addDept();
-    } else if (answer.action === "Role") {
+    } else if (res.action === "Role") {
       addRole();
-    } else if (answer.action === "Employee") {
+    } else if (res.action === "Employee") {
       addEmp();
     } else {
       startWhat();
@@ -67,12 +67,12 @@ function viewWhat() {
     type: "list",
     message: "What would you like to VIEW?",
     choices: ["Departments", "Roles", "Employees", "GO BACK"]
-  }).then(function (answer) {
-    if (answer.action === "Departments") {
+  }).then(function (res) {
+    if (res.action === "Departments") {
       viewDepts();
-    } else if (answer.action === "Roles") {
+    } else if (res.action === "Roles") {
       viewRoles();
-    } else if (answer.action === "Employees") {
+    } else if (res.action === "Employees") {
       viewEmps();
     } else {
       startWhat();
@@ -80,17 +80,102 @@ function viewWhat() {
   })
 }
 
-// Functions for adding
+// Functions for ADDING
 function addDept() {
+  console.log("Inserting a new department...\n");
+  inquirer.prompt({
+    name: "addDept",
+    type: "input",
+    message: "Enter the new department name:"
+  }).then(function (res) {
+    connection.query(
+      "INSERT INTO department SET ?",
+      {
+        name: res.addDept
+      },
+      function (err, res) {
+        if (err) throw err;
+        console.log(res.affectedRows + " department inserted!\n");
+      })
+      startWhat();
+  })
 }
 
 function addRole() {
+  console.log("Inserting a new role...\n");
+  inquirer.prompt([
+    {
+      name: "addTitle",
+      type: "input",
+      message: "Enter the new title:"
+    },
+    {
+      name: "addSalary",
+      type: "input",
+      message: "Enter the salary of the role:"
+    },
+    {
+      name: "addDeptId",
+      type: "input",
+      message: "Assign an existing department id for the role:"
+    }
+  ]).then(function (res) {
+    connection.query(
+      "INSERT INTO role SET ?",
+      {
+        title: res.addTitle,
+        salary: res.addSalary,
+        department_id: res.addDeptId
+      },
+      function (err, res) {
+        if (err) throw err;
+        console.log(res.affectedRows + " role inserted!\n");
+      })
+      startWhat();
+  })
 }
 
 function addEmp() {
+  console.log("Inserting a new employee...\n");
+  inquirer.prompt([
+    {
+      name: "addFirstName",
+      type: "input",
+      message: "Enter the first name of the new employee:"
+    },
+    {
+      name: "addLastName",
+      type: "input",
+      message: "Enter the last name of the new employee:"
+    },
+    {
+      name: "addRoleId",
+      type: "input",
+      message: "Assign an existing department id for the new employee:"
+    },
+    {
+      name: "addManagerId",
+      type: "input",
+      message: "Assign an existing manager id for the manager of the new employee (if any):"
+    }
+  ]).then(function (res) {
+    connection.query(
+      "INSERT INTO role SET ?",
+      {
+        first_name: res.addFirstName,
+        last_name: res.addLastName,
+        role_id: res.addRoleId,
+        role_id: res.addManagerId
+      },
+      function (err, res) {
+        if (err) throw err;
+        console.log(res.affectedRows + " employee inserted!\n");
+      })
+      startWhat();
+  })
 }
 
-// Functions for viewing
+// Functions for VIEWING
 function viewDepts() {
 }
 
